@@ -24,9 +24,6 @@ node{
          }
         sh "docker push ${dockerImageName}"
       }
-        
-      
-      }
       
          
   }
