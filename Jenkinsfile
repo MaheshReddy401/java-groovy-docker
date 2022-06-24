@@ -13,18 +13,5 @@ node{
          def mvnHome =  tool name: 'Maven', type: 'maven'    
          sh "${mvnHome}/bin/mvn verify; sleep 3"
       }
-      
-     stage('Build Docker Image'){         
-           sh "docker build -t ${dockerImageName} ."
-      }  
-   
-      stage('Publish Docker Image'){
-         withCredentials([string(credentialsId: 'dockerpwdAjay', variable: 'dockerPWD')]) {
-              sh "docker login -u mahesh401 -p ${dockerPWD}"
-         }
-        sh "docker push ${dockerImageName}"
-      }
-      
-         
   }
       
